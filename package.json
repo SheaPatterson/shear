@@ -1,0 +1,15 @@
+{
+  "name": "shear",
+  "private": true,
+  "packageManager": "yarn@4.5.3",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "yarn workspace @shear/web dev",
+    "build": "yarn workspaces foreach -pt run build",
+    "worker:dev": "yarn workspace @shear/collab-worker dev",
+    "worker:deploy": "yarn workspace @shear/collab-worker deploy"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "com.shear.piano",
+  "name": "SHEAR | Grand Piano",
+  "vendor": "SHEAR Audio",
+  "version": "1.0.0",
+  "type": "instrument",
+  "supports": {
+    "midi": true,
+    "presets": true
+  },
+  "io": {
+    "inputs": 0,
+    "outputs": 2
+  },
+  "params": [
+    {
+      "id": "master",
+      "name": "Master",
+      "min": 0,
+      "max": 1,
+      "default": 0.9
+    },
+    {
+      "id": "tone",
+      "name": "Tone (tilt)",
+      "min": -1,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "release",
+      "name": "Release",
+      "min": 0.05,
+      "max": 3,
+      "default": 0.7
+    },
+    {
+      "id": "velCurve",
+      "name": "Velocity Curve",
+      "min": 0.5,
+      "max": 2.0,
+      "default": 1.0
+    }
+  ],
+  "midi": {
+    "mapping": {}
+  },
+  "ui": {
+    "title": "SHEAR | Grand Piano",
+    "entry": "ui/index.html"
+  },
+  "assets": {
+    "samples": {
+      "root": "assets/samples/grand_C4.wav",
+      "rootNote": 60
+    }
+  }
+}

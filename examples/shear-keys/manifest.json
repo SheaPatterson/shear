@@ -1,0 +1,72 @@
+{
+  "id": "com.shear.keys",
+  "name": "SHEAR | Keys",
+  "vendor": "SHEAR Audio",
+  "version": "1.0.0",
+  "type": "instrument",
+  "supports": {
+    "midi": true,
+    "presets": true
+  },
+  "io": {
+    "inputs": 0,
+    "outputs": 2
+  },
+  "params": [
+    {
+      "id": "master",
+      "name": "Master",
+      "min": 0,
+      "max": 1,
+      "default": 0.9
+    },
+    {
+      "id": "tone",
+      "name": "Tone",
+      "min": -1,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "drive",
+      "name": "Drive",
+      "min": 0,
+      "max": 1,
+      "default": 0.15
+    },
+    {
+      "id": "tremRate",
+      "name": "Trem Rate",
+      "min": 0.1,
+      "max": 12,
+      "default": 4.5
+    },
+    {
+      "id": "tremDepth",
+      "name": "Trem Depth",
+      "min": 0,
+      "max": 1,
+      "default": 0.35
+    },
+    {
+      "id": "release",
+      "name": "Release",
+      "min": 0.05,
+      "max": 2.5,
+      "default": 0.6
+    }
+  ],
+  "midi": {
+    "mapping": {}
+  },
+  "ui": {
+    "title": "SHEAR | Keys",
+    "entry": "ui/index.html"
+  },
+  "assets": {
+    "samples": {
+      "root": "assets/samples/ep_C4.wav",
+      "rootNote": 60
+    }
+  }
+}

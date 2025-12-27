@@ -1,0 +1,8 @@
+name = "shear-collab-worker"
+main = "src/index.ts"
+compatibility_date = "2025-12-26"
+
+[vars]
+LIVEKIT_URL = "wss://YOUR_LIVEKIT_URL"
+LIVEKIT_API_KEY = "YOUR_KEY"
+LIVEKIT_API_SECRET = "YOUR_SECRET"

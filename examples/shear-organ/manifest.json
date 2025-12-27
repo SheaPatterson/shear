@@ -1,0 +1,123 @@
+{
+  "id": "com.shear.organ",
+  "name": "SHEAR | Organ",
+  "vendor": "SHEAR Audio",
+  "version": "1.0.0",
+  "type": "instrument",
+  "supports": {
+    "midi": true,
+    "presets": true
+  },
+  "io": {
+    "inputs": 0,
+    "outputs": 2
+  },
+  "params": [
+    {
+      "id": "master",
+      "name": "Master",
+      "min": 0,
+      "max": 1,
+      "default": 0.9
+    },
+    {
+      "id": "click",
+      "name": "Key Click",
+      "min": 0,
+      "max": 1,
+      "default": 0.15
+    },
+    {
+      "id": "drive",
+      "name": "Drive",
+      "min": 0,
+      "max": 1,
+      "default": 0.1
+    },
+    {
+      "id": "db1",
+      "name": "Drawbar 1",
+      "min": 0,
+      "max": 1,
+      "default": 1.0
+    },
+    {
+      "id": "db2",
+      "name": "Drawbar 2",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "db3",
+      "name": "Drawbar 3",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "db4",
+      "name": "Drawbar 4",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "db5",
+      "name": "Drawbar 5",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "db6",
+      "name": "Drawbar 6",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "db7",
+      "name": "Drawbar 7",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "db8",
+      "name": "Drawbar 8",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "db9",
+      "name": "Drawbar 9",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "a",
+      "name": "Attack",
+      "min": 0.001,
+      "max": 1,
+      "default": 0.01
+    },
+    {
+      "id": "r",
+      "name": "Release",
+      "min": 0.01,
+      "max": 2,
+      "default": 0.18
+    }
+  ],
+  "midi": {
+    "mapping": {}
+  },
+  "ui": {
+    "title": "SHEAR | Organ",
+    "entry": "ui/index.html"
+  },
+  "assets": {}
+}

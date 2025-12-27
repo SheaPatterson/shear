@@ -1,0 +1,139 @@
+{
+  "id": "com.shear.amp",
+  "name": "SHEAR | Amp",
+  "vendor": "SHEAR",
+  "version": "1.0.0",
+  "type": "fx",
+  "supports": {
+    "audioWorklet": true,
+    "wasm": false,
+    "midi": false
+  },
+  "io": {
+    "inputs": 1,
+    "outputs": 2
+  },
+  "params": [
+    {
+      "id": "input",
+      "name": "Input",
+      "min": -24,
+      "max": 24,
+      "default": 0,
+      "unit": "dB"
+    },
+    {
+      "id": "gain",
+      "name": "Gain",
+      "min": 0,
+      "max": 1,
+      "default": 0.35
+    },
+    {
+      "id": "model",
+      "name": "Model",
+      "min": 0,
+      "max": 2,
+      "default": 0
+    },
+    {
+      "id": "os",
+      "name": "Oversample",
+      "min": 0,
+      "max": 1,
+      "default": 1
+    },
+    {
+      "id": "bass",
+      "name": "Bass",
+      "min": -12,
+      "max": 12,
+      "default": 0,
+      "unit": "dB"
+    },
+    {
+      "id": "mid",
+      "name": "Mid",
+      "min": -12,
+      "max": 12,
+      "default": 0,
+      "unit": "dB"
+    },
+    {
+      "id": "treble",
+      "name": "Treble",
+      "min": -12,
+      "max": 12,
+      "default": 0,
+      "unit": "dB"
+    },
+    {
+      "id": "presence",
+      "name": "Presence",
+      "min": 0,
+      "max": 1,
+      "default": 0.3
+    },
+    {
+      "id": "master",
+      "name": "Master",
+      "min": 0,
+      "max": 1,
+      "default": 0.9
+    },
+    {
+      "id": "gate",
+      "name": "Noise Gate",
+      "min": -80,
+      "max": 0,
+      "default": -60,
+      "unit": "dB"
+    },
+    {
+      "id": "cab",
+      "name": "Cab",
+      "min": 0,
+      "max": 2,
+      "default": 2
+    },
+    {
+      "id": "mic",
+      "name": "Mic",
+      "min": 0,
+      "max": 2,
+      "default": 0
+    },
+    {
+      "id": "air",
+      "name": "Air/Room",
+      "min": 0,
+      "max": 1,
+      "default": 0.1
+    },
+    {
+      "id": "cabMix",
+      "name": "Cab Mix",
+      "min": 0,
+      "max": 1,
+      "default": 1.0
+    }
+  ],
+  "ui": {
+    "entry": "ui/index.html",
+    "width": 760,
+    "height": 460
+  },
+  "assets": {
+    "irs": {
+      "cab_1x12_dyn": "assets/irs/cab_1x12_dyn.wav",
+      "cab_1x12_cond": "assets/irs/cab_1x12_cond.wav",
+      "cab_1x12_ribbon": "assets/irs/cab_1x12_ribbon.wav",
+      "cab_2x12_dyn": "assets/irs/cab_2x12_dyn.wav",
+      "cab_2x12_cond": "assets/irs/cab_2x12_cond.wav",
+      "cab_2x12_ribbon": "assets/irs/cab_2x12_ribbon.wav",
+      "cab_4x12_dyn": "assets/irs/cab_4x12_dyn.wav",
+      "cab_4x12_cond": "assets/irs/cab_4x12_cond.wav",
+      "cab_4x12_ribbon": "assets/irs/cab_4x12_ribbon.wav"
+    }
+  }
+}

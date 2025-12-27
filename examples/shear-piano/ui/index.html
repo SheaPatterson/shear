@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SHEAR | Grand Piano</title>
+  <style>
+    body{font-family:system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin:0; padding:14px; background:#0b0b0b; color:#eaeaea}
+    .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .card{border:1px solid #2a2a2a; background:#141414; border-radius:12px; padding:12px; margin-top:12px}
+    label{font-size:12px; opacity:0.85}
+    input[type=range]{width:220px}
+    select{background:#111; color:#eaeaea; border:1px solid #2a2a2a; border-radius:8px; padding:6px}
+    button{background:#111; color:#eaeaea; border:1px solid #2a2a2a; border-radius:10px; padding:8px 10px}
+    .kbd{display:grid; grid-template-columns: repeat(12, 1fr); gap:6px; margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="row" style="justify-content:space-between">
+    <div>
+      <div style="font-weight:900; letter-spacing:0.08em; font-size:12px; opacity:0.8">SHEAR INSTRUMENT</div>
+      <h2 style="margin:6px 0 0 0">SHEAR | Grand Piano</h2>
+      <div style="opacity:0.7; margin-top:6px">Demo UI: parameters + MIDI test pads.</div>
+    </div>
+    <div style="opacity:0.6; font-size:12px">processor: <code>shear:piano</code></div>
+  </div>
+
+  <div class="card" id="params"></div>
+
+  <div class="card">
+    <div style="font-weight:800; margin-bottom:8px">MIDI Test Pads</div>
+    <div class="kbd" id="kbd"></div>
+  </div>
+
+<script>
+(function(){
+  const params = [{"id": "master", "name": "Master", "min": 0, "max": 1, "default": 0.9}, {"id": "tone", "name": "Tone (tilt)", "min": -1, "max": 1, "default": 0.0}, {"id": "release", "name": "Release", "min": 0.05, "max": 3, "default": 0.7}, {"id": "velCurve", "name": "Velocity Curve", "min": 0.5, "max": 2.0, "default": 1.0}];
+  const paramsEl = document.getElementById('params');
+  const kbd = document.getElementById('kbd');
+
+  function post(msg) {
+    window.parent?.postMessage({ pluginMessage: msg }, '*');
+  }
+
+  function renderParams() {
+    paramsEl.innerHTML = '<div style="font-weight:800; margin-bottom:8px">Controls</div>';
+    params.forEach(p => {
+      const wrap = document.createElement('div');
+      wrap.className = 'row';
+      wrap.style.marginTop = '8px';
+      const lab = document.createElement('label');
+      lab.textContent = p.name;
+      lab.style.width = '140px';
+      const range = document.createElement('input');
+      range.type = 'range';
+      range.min = p.min;
+      range.max = p.max;
+      range.step = 0.001;
+      range.value = p.default;
+      const val = document.createElement('div');
+      val.style.width = '60px';
+      val.style.textAlign = 'right';
+      val.style.opacity = 0.8;
+      val.textContent = Number(p.default).toFixed(3);
+
+      range.addEventListener('input', () => {
+        val.textContent = Number(range.value).toFixed(3);
+        post({ type: 'param', paramId: p.id, value: Number(range.value) });
+      });
+      wrap.appendChild(lab);
+      wrap.appendChild(range);
+      wrap.appendChild(val);
+      paramsEl.appendChild(wrap);
+    });
+  }
+
+  // MIDI pads (C3..B3)
+  const base = 48;
+  const names = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+  for (let i=0;i<12;i++) {
+    const note = base+i;
+    const b = document.createElement('button');
+    b.textContent = names[i];
+    b.onmousedown = () => post({ type:'midi', note, vel: 110, on:true });
+    b.onmouseup = () => post({ type:'midi', note, vel: 0, on:false });
+    b.onmouseleave = () => post({ type:'midi', note, vel: 0, on:false });
+    kbd.appendChild(b);
+  }
+
+  // Listen for init state from host (optional)
+  window.addEventListener('message', (e) => {
+    const msg = e.data?.pluginMessage;
+    if (msg?.type === 'state' && msg?.state?.params) {
+      // not wiring back into ranges for now; host owns truth
+    }
+  });
+
+  renderParams();
+})();
+</script>
+</body>
+</html>

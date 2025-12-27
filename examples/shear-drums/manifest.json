@@ -1,0 +1,128 @@
+{
+  "id": "com.shear.drums",
+  "name": "SHEAR | Drums",
+  "vendor": "SHEAR",
+  "version": "1.0.0",
+  "type": "instrument",
+  "supports": {
+    "audioWorklet": true,
+    "wasm": false,
+    "midi": true
+  },
+  "io": {
+    "inputs": 0,
+    "outputs": 2,
+    "stems": [
+      {
+        "id": "mix",
+        "name": "Mix",
+        "channels": 2
+      },
+      {
+        "id": "kick",
+        "name": "Kick",
+        "channels": 2
+      },
+      {
+        "id": "snare",
+        "name": "Snare",
+        "channels": 2
+      },
+      {
+        "id": "tom1",
+        "name": "Tom 1",
+        "channels": 2
+      },
+      {
+        "id": "tom2",
+        "name": "Tom 2",
+        "channels": 2
+      },
+      {
+        "id": "floor",
+        "name": "Floor Tom 1",
+        "channels": 2
+      },
+      {
+        "id": "floor2",
+        "name": "Floor Tom 2",
+        "channels": 2
+      },
+      {
+        "id": "cymbals",
+        "name": "Cymbals/OH",
+        "channels": 2
+      },
+      {
+        "id": "room",
+        "name": "Room",
+        "channels": 2
+      }
+    ]
+  },
+  "params": [
+    {
+      "id": "master",
+      "name": "Master",
+      "min": 0,
+      "max": 1,
+      "default": 0.9
+    },
+    {
+      "id": "kit",
+      "name": "Kit",
+      "min": 0,
+      "max": 0,
+      "default": 0
+    },
+    {
+      "id": "humanize",
+      "name": "Humanize",
+      "min": 0,
+      "max": 1,
+      "default": 0.0
+    },
+    {
+      "id": "swing",
+      "name": "Swing",
+      "min": 0,
+      "max": 0.7,
+      "default": 0.0
+    }
+  ],
+  "midi": {
+    "mapping": {
+      "kick": 36,
+      "snare": 38,
+      "hh_closed": 42,
+      "hh_open": 46,
+      "tom1": 48,
+      "tom2": 45,
+      "floor": 41,
+      "crash1": 49,
+      "ride": 51,
+      "floor2": 43
+    }
+  },
+  "ui": {
+    "entry": "ui/index.html",
+    "width": 860,
+    "height": 520
+  },
+  "assets": {
+    "kits": {
+      "rock_standard": {
+        "kick": "assets/kits/rock_standard/samples/kick.wav",
+        "snare": "assets/kits/rock_standard/samples/snare.wav",
+        "hh_closed": "assets/kits/rock_standard/samples/hh_closed.wav",
+        "hh_open": "assets/kits/rock_standard/samples/hh_open.wav",
+        "tom1": "assets/kits/rock_standard/samples/tom1.wav",
+        "tom2": "assets/kits/rock_standard/samples/tom2.wav",
+        "floor": "assets/kits/rock_standard/samples/floor.wav",
+        "crash1": "assets/kits/rock_standard/samples/crash1.wav",
+        "ride": "assets/kits/rock_standard/samples/ride.wav",
+        "floor2": "examples/shear-drums/assets/kits/rock_standard/samples/floor2.wav"
+      }
+    }
+  }
+}
