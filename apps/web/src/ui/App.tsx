@@ -5,6 +5,8 @@ import { FxHostPanel } from "./FxHostPanel";
 import { DrumEditorPanel } from "./DrumEditorPanel";
 import { DrumMixerPanel } from "./DrumMixerPanel";
 import { DrumBusPanel } from "./DrumBusPanel";
+import { CollabProvider } from "../collab/CollabProvider";
+import { CollabStatus } from "./CollabStatus";
 import { InstrumentsPanel } from "./InstrumentsPanel";
 import { BasicInstrumentController } from "../engine/BasicInstrumentController";
 import { DrumTrackController } from "../engine/DrumTrackController";
@@ -20,7 +22,9 @@ async function loadInstalledManifest(store: PluginPackageStore, pluginId: string
 }
 
 export function App() {
-  const [projectId] = useState("demo-project");
+  
+  const projectId = new URLSearchParams(window.location.search).get('project') || 'demo-project';
+const [projectId] = useState(projectId);
 
   const audioCtx = useMemo(() => new AudioContext(), []);
   const monitorBus = useMemo(() => {
@@ -43,6 +47,7 @@ export function App() {
   }
 
   return (
+    <CollabProvider projectId={projectId}>
     <div style={{ padding: 16, fontFamily: "system-ui, sans-serif" }}>
       <h1 style={{ margin: 0 }}>SHEAR</h1>
       <p style={{ opacity: 0.75, marginTop: 6 }}>Modern web recording DAW scaffold.</p>
@@ -57,6 +62,8 @@ export function App() {
         </p>
         <button onClick={loadDrums}>Load Drums Instrument</button>
       </div>
+
+      <CollabStatus />
 
       <InstrumentsPanel instruments={instruments} audioCtx={audioCtx} />
 
@@ -77,5 +84,6 @@ export function App() {
         ]}
       />
     </div>
-  );
+      </CollabProvider>
+);
 }
