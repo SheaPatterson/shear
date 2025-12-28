@@ -1,4 +1,6 @@
-name = "shear-collab"
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ShearRoom"]name = "shear-collab"
 main = "src/index.ts"
 compatibility_date = "2025-12-27"
 
