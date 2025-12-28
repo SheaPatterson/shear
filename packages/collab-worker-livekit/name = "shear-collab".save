@@ -1,0 +1,23 @@
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ShearRoom"]main = "src/index.ts"
+compatibility_date = "2025-12-27"
+
+# Durable Object for project rooms (presence + transport sync)
+[durable_objects]
+bindings = [{ name = "ROOMS", class_name = "ShearRoom" }]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ShearRoom"]
+name = "shear-collab"
+main = "src/index.ts"
+compatibility_date = "2025-12-27"
+
+# Durable Object for project rooms (presence + transport sync)
+[durable_objects]
+bindings = [{ name = "ROOMS", class_name = "ShearRoom" }]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["ShearRoom"]
